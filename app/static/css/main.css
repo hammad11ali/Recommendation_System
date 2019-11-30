@@ -1,0 +1,12 @@
+body {
+  background: yellowgreen;
+  color: #333333;
+  margin-top: 5rem;
+}
+.inline-cards
+{
+  display: inline;
+}
+h1 {
+  color: #444444;
+}
