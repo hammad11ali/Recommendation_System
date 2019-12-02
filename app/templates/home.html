@@ -14,16 +14,16 @@
     />
   </head>
   <body>
-    <form>
-      <input id="name" />
+    <form action="http://localhost:5000/movie" method="POST">
+      <input type="text" name="Name" id="name" />
       <button type="submit">Search</button>
     </form>
 
     <!---Movie Selected -->
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">Movie title</h5>
-        <p class="card-text">Catagoties</p>
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{catagory}}</p>
       </div>
     </div>
     <br />
@@ -31,88 +31,6 @@
     <br />
     <br />
     <!-- Recommendations-->
-    <div class="card-group">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Movie title</h5>
-          <p class="card-text">
-            catagories
-          </p>
-          <a href="#" class="btn btn-primary">Go to this movie</a>
-        </div>
-      </div>
-    </div>
+    <div class="card-group"></div>
   </body>
 </html>
