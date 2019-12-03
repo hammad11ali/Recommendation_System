@@ -8,7 +8,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route('/' , methods=['GET'])
 def home():
     
-    return render_template('home.html',name="None" , catagory="None" , suggestions=None )
+    return render_template('home.html',name="None" , catagory="None" , suggestions=[] )
 
 @app.route('/movie',methods = ['POST','GET'])
 def movie():
@@ -24,7 +24,6 @@ def movie():
         suggestedIndeces=KNN(index)
         suggestions=[]
         for i in suggestedIndeces:
-            
             s=[]
             s.append(data[i][1])
             s.append(getCatagory(i))
@@ -58,7 +57,7 @@ def KNN(index):
     distance=Sort_Tuple(distances)
     
     indexes=[]
-    for i in range(0,100):
+    for i in range(0,10):
         indexes.append(distance[i][0])
     
     return indexes
