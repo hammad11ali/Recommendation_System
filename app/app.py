@@ -6,8 +6,7 @@ data=pandas.read_csv('MetaData.csv').values.tolist()
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route('/' , methods=['GET'])
-def home():
-    
+def home():   
     return render_template('home.html',name="None" , catagory="None" , suggestions=[] )
 
 @app.route('/movie',methods = ['POST','GET'])
@@ -18,10 +17,7 @@ def movie():
         if movie['index']=="Not Found":
             return render_template('home.html',name="Not Found" , catagory="None" )
         movie['Catagory']=getCatagory(movie['index'])
-        print(movie)
-        print(movie['index']+3)
-        index=int(movie['index'])
-        suggestedIndeces=KNN(index)
+        suggestedIndeces=KNN(movie['index'])
         suggestions=[]
         for i in suggestedIndeces:
             s=[]
@@ -29,13 +25,16 @@ def movie():
             s.append(getCatagory(i))
             suggestions.append(s)
         return render_template("home.html", name=movie['Name'], catagory=movie['Catagory'] , suggestions=suggestions)
+    else:
+        return render_template('home.html',name="None" , catagory="None" , suggestions=[] )
+
        
        
 def getCatagory(index):
     Catagory=""
     for i in range(2 , len(data_csv.columns)):
         if data[index][i]==1:
-            Catagory=Catagory+ "|"+ data_csv.columns[i]
+            Catagory=Catagory+ " | "+ data_csv.columns[i]
     return Catagory
 
 def getIndex(name):
@@ -47,8 +46,8 @@ def getIndex(name):
 def KNN(index):
     import math
     distances=[]
-    sum=0
     for i in range(0,len(data)):
+        sum=0
         for j in range(2,len(data_csv.columns)):
             sum=float((((data[i][j]-data[index][j])**2))+sum)
         sum=math.sqrt(sum)
