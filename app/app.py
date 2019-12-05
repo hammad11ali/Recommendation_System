@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route('/' , methods=['GET'])
 def home():   
-    return render_template('home.html',name="None" , catagory="None" , suggestions=[] )
+    return render_template('home.html',name="None" , catagory="Please Search a movie first")
 
 @app.route('/movie',methods = ['POST','GET'])
 def movie():
@@ -26,7 +26,7 @@ def movie():
             suggestions.append(s)
         return render_template("home.html", name=movie['Name'], catagory=movie['Catagory'] , suggestions=suggestions)
     else:
-        return render_template('home.html',name="None" , catagory="None" , suggestions=[] )
+        return render_template('home.html',name="None" , catagory="Please Search a movie first" )
 
        
        
