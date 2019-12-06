@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Flask app</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/main.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
+
+<body>
     <form action="http://localhost:5000/movie" method="POST">
-      <input type="text" name="Name" id="name" />
-      <button type="submit">Search</button>
+        <input type="text" name="Name" id="name" />
+        <button type="submit">Search</button>
     </form>
 
     <!---Movie Selected -->
     <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <p class="card-text">{{catagory}}</p>
-      </div>
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">{{catagory}}</p>
+        </div>
     </div>
     <br />
     <br />
     <br />
     <br />
     <!-- Recommendations-->
-    <div class="card-group">
-      {% for suggesion in suggestions %}
-      <div class="card" style="width: 18rem;">
+    <div class="card-group"></div>
+    {% for suggesion in suggestions %}
+    <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">{{suggesion[0]}}</h5>
-          <p class="card-text">{{suggesion[1]}}</p>
+            <h5 class="card-title">{{suggesion[0]}}</h5>
+            <p class="card-text">{{suggesion[1]}}</p>
+            <p class="card-text">{{suggesion[2]}}</p>
         </div>
-      </div>
-      {% endfor %}
     </div>
-    </body>
-  </body>
+    {% endfor %}
+
+</body>
+</body>
+
 </html>

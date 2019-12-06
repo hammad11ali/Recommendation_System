@@ -21,15 +21,14 @@ def movie():
         suggestions=[]
         for i in suggestedIndeces:
             s=[]
-            s.append(data[i][1])
-            s.append(getCatagory(i))
+            s.append(data[i[0]][1])
+            s.append(getCatagory(i[0]))
+            s.append(i[1])
             suggestions.append(s)
         return render_template("home.html", name=movie['Name'], catagory=movie['Catagory'] , suggestions=suggestions)
     else:
         return render_template('home.html',name="None" , catagory="Please Search a movie first" )
 
-       
-       
 def getCatagory(index):
     Catagory=""
     for i in range(2 , len(data_csv.columns)):
@@ -56,8 +55,8 @@ def KNN(index):
     distance=Sort_Tuple(distances)
     
     indexes=[]
-    for i in range(0,10):
-        indexes.append(distance[i][0])
+    for i in range(0,100):
+        indexes.append(distance[i])
     
     return indexes
 
